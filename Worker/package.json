@@ -1,0 +1,23 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "database worker for the website",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pjw0618/MovieSharing.git"
+  },
+  "keywords": [
+    "worker",
+    "database"
+  ],
+  "author": "Yaoqi Du",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pjw0618/MovieSharing/issues"
+  },
+  "homepage": "https://github.com/Pjw0618/MovieSharing#readme"
+}
