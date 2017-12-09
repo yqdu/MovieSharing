@@ -1,7 +1,11 @@
-const commentdata = require("./comment");
-const sharemessagedata = require("./sharemessage");
+const movies = require('./movies');
+const users = require('./users');
+const comments = require('./comments');
+const sharemessages = require('./sharemessages');
 
 module.exports = {
-    comment: commentdata,
-    sharemessage: sharemessagedata
+    movies: movies,
+    users: users,
+    comments: comments,
+    sharemessages: sharemessages
 };

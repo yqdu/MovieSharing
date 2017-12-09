@@ -1,13 +1,26 @@
 {
   "name": "apiserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "API server for movie sharing website",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Yunan Dai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pjw0618/MovieSharing.git"
+  },
+  "keywords": [
+    "API",
+    "server",
+    "database"
+  ],
+  "author": "The Paladins",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pjw0618/MovieSharing/issues"
+  },
+  "homepage": "https://github.com/Pjw0618/MovieSharing#readme",
   "dependencies": {
     "express": "^4.16.2",
     "node-redis-pubsub": "^1.0.3",

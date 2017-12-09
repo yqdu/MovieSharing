@@ -1,7 +1,7 @@
 const data=require("./data");
 
-const sharedata=data.sharemessage;
-const commentdata = data.comment;
+const sharedata=data.sharemessages;
+const commentdata = data.comments;
 const dbConnection = require("./config/mongoConnection");
 const redis = require("redis");
 const redisConnection = require("./redis/redis-connection");

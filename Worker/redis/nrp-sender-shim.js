@@ -9,7 +9,6 @@ const nrpConfig = {
 const defaultRedisConnection = new NRP(nrpConfig);
 
 const defaultMessageConfig = {
-    
     data: {},
     timeout: 1000,
     eventName: "send",
@@ -58,6 +57,7 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
             }
         }
 
+        //console.log(settings.data);
         redisConnection.emit(outgoingEventName, {
             requestId: messageId,
             data: settings.data,
