@@ -154,7 +154,7 @@ let exportedMethods = {
         })
     },
 
-    addScreenShotToMovie(movieId, pictureUrl) {
+    addScreenshotToMovie(movieId, pictureUrl) {
         return movies().then((movieCollection) => {
             return movieCollection.updateOne({ _id: movieId }, {
                 $addToSet: {
@@ -164,7 +164,28 @@ let exportedMethods = {
         });
     },
 
-    updateScore(movieId, score) {
+    updateWatchedUsers(movieId, userId) {
+        return movies().then((movieCollection) => {
+            return movieCollection.updateOne({ _id: movieId }, {
+                $addToSet: {
+                    watchedUsers: userId
+                }
+            });
+        });
+    },
+
+    updateWishingUsers() {
+        return movies().then((movieCollection) => {
+            return movieCollection.updateOne({ _id: movieId }, {
+                $addToSet: {
+                    wishingUsers: userId
+                }
+            });
+        });
+    },
+
+    //call it when add mew comment
+    addScore(movieId, score) {
         return movies().then((movieCollection) => {
             return this.getMovieById(id).then((movie) => {
                 let newScore;
@@ -187,23 +208,25 @@ let exportedMethods = {
             });
         });
     },
-
-    updateWatchedUsers(movieId, userId) {
+    //call it when update comment
+    updateScore(movieId, newScore, oldScore) {
         return movies().then((movieCollection) => {
-            return movieCollection.updateOne({ _id: movieId }, {
-                $addToSet: {
-                    watchedUsers: userId
+            return this.getMovieById(id).then((movie) => {
+                let score;
+                if (!movie.score || movie.commentNum === 0) {
+                    score = newScore;
+                } else {
+                    score = (movie.score * movie.commentNum + newScore - oldScore) / (movie.commentNum);
                 }
-            });
-        });
-    },
-
-    updateWishingUsers() {
-        return movies().then((movieCollection) => {
-            return movieCollection.updateOne({ _id: movieId }, {
-                $addToSet: {
-                    wishingUsers: userId
-                }
+                let updateInfo = {
+                    score: newScore,
+                };
+                let updateCommand = {
+                    $set: updateInfo
+                };
+                return movieCollection.updateOne({ _id: movieId }, updateCommand).then((result) => {
+                    return this.getMovieById(movieId);
+                });
             });
         });
     },
