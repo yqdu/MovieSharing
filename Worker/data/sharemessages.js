@@ -1,5 +1,5 @@
-const mongoConnections = require("../config/mongoConnections");
-const sharemessages = mongoConnections.shareMessages;
+const mongoCollections = require("../config/mongoCollections");
+const sharemessages = mongoCollections.shareMessages;
 const uuid = require('node-uuid');
 let exportedMethods = {
     getMessagesBySenderId(SenderId) {

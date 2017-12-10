@@ -1,5 +1,5 @@
-const mongoConnections = require("../config/mongoConnections");
-const comments = mongoConnections.comments;
+const mongoCollections = require("../config/mongoCollections");
+const comments = mongoCollections.comments;
 const uuid = require('node-uuid');
 let exportedMethods = {
     getCommentsByUserId(id) {
