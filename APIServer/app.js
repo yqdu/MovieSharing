@@ -17,6 +17,10 @@ const bcrypt = require("bcrypt-nodejs");
 const jwt = require('jsonwebtoken');
 const jwtSecret = "a secret phrase!!"
 
+const redis = require("redis");
+const redisConnection = require("./redis/redis-connection");
+const nrpSender = require("./redis/nrp-sender-shim")
+
 app.use(bodyParser.json());
 app.use(flash());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
@@ -26,9 +30,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-const bcrypt = require("bcrypt-nodejs");
-const LocalStrategy = require('passport-local').Strategy;
-const users = require("./data/users");
 
 
 
@@ -38,7 +39,7 @@ passport.use('login', new Strategy({
     passwordField: 'password',
     passReqToCallback: true
 },
-    function (req, username, password, done) {
+   async function (req, username, password, done) {
         //email = decodeURIComponent(email)
 
         let response = await nrpSender.sendMessage({
@@ -84,7 +85,7 @@ passport.use('login', new Strategy({
 passport.serializeUser(function (user, done) {
     done(null, user._id);
 });
-passport.deserializeUser(function (id, done) {
+passport.deserializeUser(async function (id, done) {
     let response = await nrpSender.sendMessage({
         redis: redisConnection,
         eventName: "user-getUserByDbId",

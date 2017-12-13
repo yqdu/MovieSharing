@@ -213,3 +213,4 @@ router.delete('/wishList/:id', async (req, res) => {
         res.json(message.data.message);
     })
 });
+module.exports=router;

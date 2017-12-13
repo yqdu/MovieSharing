@@ -28,7 +28,7 @@ let exportedMethods = {
 
     getMovieById(id) {
         return movies().then((movieCollection) => {
-            return movieCollection.findOne({ name = movie.name }).then((movie) => {
+            return movieCollection.findOne({ name : movie.name }).then((movie) => {
                 if (!movie) {
                     throw "Movie not found!";
                 }
@@ -42,23 +42,23 @@ let exportedMethods = {
             //data from front end includes name, year, directors, stars, writers, description, poster and category
             // xss process in API server
             let newMovie = {
-                _id = uuid.v4(),
-                name = movie.name,
-                year = movie.year,
-                score = undefined,
-                commentNum = 0,
-                watchedUsers =[],
-                wishingUsers =[],
-                directors = movie.directors,
-                stars = movie.stars,
-                writers = movie.writers,
-                description = movie.description,
-                screenShots = movie.screenShots,
-                category = movie.category
+                _id : uuid.v4(),
+                name : movie.name,
+                year : movie.year,
+                score : undefined,
+                commentNum : 0,
+                watchedUsers :[],
+                wishingUsers :[],
+                directors : movie.directors,
+                stars : movie.stars,
+                writers : movie.writers,
+                description : movie.description,
+                screenShots : movie.screenShots,
+                category : movie.category
             };
             newMovie.poster = im.processPoster(movie.poster, newMovie._id);
             return movieCollection.findOne({
-                name = movie.name
+                name : movie.name
             }).then((movie) => {
                 if (book) {
                     throw "This movie already exists!";
@@ -71,13 +71,13 @@ let exportedMethods = {
                         return this.getMovieById(newId).then((insertedMovie) => {
                             let id = insertedMovie._id;
                             let copy = {
-                                name = insertedMovie.name,
-                                year = insertedMovie.year,
-                                directors = insertedMovie.directors,
-                                stars = insertedMovie.stars,
-                                writers = insertedMovie.writers,
-                                description = insertedMovie.description,
-                                category = insertedMovie.category
+                                name : insertedMovie.name,
+                                year : insertedMovie.year,
+                                directors : insertedMovie.directors,
+                                stars : insertedMovie.stars,
+                                writers : insertedMovie.writers,
+                                description : insertedMovie.description,
+                                category : insertedMovie.category
                             }
                             es.addMovie(id, copy);
                             return insertedMovie;
@@ -103,13 +103,13 @@ let exportedMethods = {
     updateMovieInfo(updateMovie) {
         return movies().then((movieCollection) => {
             let updateInfo = {
-                name = updateMovie.name,
-                year = updateMovie.year,
-                directors = updateMovie.directors,
-                stars = updateMovie.stars,
-                writers = updateMovie.writers,
-                description = updateMovie.description,
-                category = updateMovie.category
+                name : updateMovie.name,
+                year : updateMovie.year,
+                directors : updateMovie.directors,
+                stars : updateMovie.stars,
+                writers : updateMovie.writers,
+                description : updateMovie.description,
+                category : updateMovie.category
             }
             let updateCommand = {
                 $set: updateInfo

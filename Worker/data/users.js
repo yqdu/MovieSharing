@@ -1,7 +1,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
 const uuid = require('node-uuid');
-const bcrypt = require("brcypt-nodejs");
+const bcrypt = require("bcrypt-nodejs");
 const movies = require('./movies');
 let exportedMethods = {
     getAllUsers() {

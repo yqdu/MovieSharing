@@ -1,6 +1,7 @@
 const sharemessage = require("./sharemessage");
 const comment = require("./comment");
-
+const user = require("./users");
+const movie = require("./movie");
 const constructorMethod = (app) => {
     app.use("/sharemessage", sharemessage);
     app.use("/comment", comment);
