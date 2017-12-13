@@ -2,6 +2,8 @@ const data=require("./data");
 
 const sharedata=data.sharemessages;
 const commentdata = data.comments;
+const moviedata = data.movies;
+const userdata = data.users;
 const dbConnection = require("./config/mongoConnection");
 const redis = require("redis");
 const redisConnection = require("./redis/redis-connection");
@@ -213,6 +215,311 @@ redisConnection.on('sharemessage-delete:request:*', async (message, channel)=>{
             data: {
                 
                 message: await shareInfo
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+//movie
+redisConnection.on('movie-post:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await moviedata.addMovie(info).then(async (newadd)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "post-from-back-movie",
+            data: {
+                
+                message: await newadd
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-getAllMovie:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await moviedata.getAllMovies().then(async (allMovies)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getAllMovie-from-back-movie",
+            data: {
+                
+                message: await allMovies
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-getTopTen:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await moviedata.getTopTen().then(async (TopTen)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getTopTen-from-back-movie",
+            data: {
+                
+                message: await TopTen
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-getMovieById:request:*', async (message, channel)=>{
+    
+    let id = message.data.message;
+    await moviedata.getMovieById(id).then(async (movie)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getMovieById-from-back-movie",
+            data: {
+                
+                message: await movie
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-put:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await moviedata.updateMovieInfo(info).then(async (update)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "put-from-back-movie",
+            data: {
+                
+                message: await update
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-searchKeyword:request:*', async (message, channel)=>{
+    
+    let keyword = message.data.message;
+    await moviedata.searchInMovie(keyword).then(async (search)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "searchKeyword-from-back-movie",
+            data: {
+                
+                message: await search
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-searchCategory:request:*', async (message, channel)=>{
+    
+    let category = message.data.message;
+    await moviedata.searchInMovie(category).then(async (search)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "searchCategory-from-back-movie",
+            data: {
+                
+                message: await search
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('movie-postScreenshot:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await moviedata.addScreenshotToMovie(info.movieId, info.pictureUrl).then(async (shot)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "postScreenshot-from-back-movie",
+            data: {
+                
+                message: await shot
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+//user
+redisConnection.on('user-post:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await userdata.addUser(user) .then(async (newadd)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "post-from-back-user",
+            data: {
+                
+                message: await newadd
+            },
+            expectsResponse: false
+        });
+    })
+});
+redisConnection.on('user-getAllUser:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await userdata.getAllUsers().then(async (users)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getAllUser-from-back-user",
+            data: {
+                
+                message: await users
+            },
+            expectsResponse: false
+        });
+    })
+});
+redisConnection.on('user-getUserByDbId:request:*', async (message, channel)=>{
+    
+    let id = message.data.message;
+    await userdata.getUserByDbId(id).then(async (user)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getUserByDbId-from-back-user",
+            data: {
+                
+                message: await user
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('user-getUserByEmail:request:*', async (message, channel)=>{
+    
+    let email = message.data.message;
+    await userdata.getUserByEmail(email).then(async (user)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getUserByEmail-from-back-user",
+            data: {
+                
+                message: await user
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('user-getUserByUsername:request:*', async (message, channel)=>{
+    
+    let email = message.data.message;
+    await userdata.getUserByUsername(username).then(async (user)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "getUserByUsername-from-back-user",
+            data: {
+                
+                message: await user
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('user-put:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await userdata.updateUser(info.id, info.updateU).then(async (user)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "put-from-back-user",
+            data: {
+                
+                message: await user
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('user-delete:request:*', async (message, channel)=>{
+    
+    let id = message.data.message;
+    await userdata.removeUser(id).then(async (user)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "delete-from-back-user",
+            data: {
+                
+                message: await user
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('watchedList-post:request:*', async (message, channel)=>{
+    
+    let info = message.data.message;
+    await userdata.addToWatchedList(info.id, info.movie).then(async (list)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "watchedList-from-back-user",
+            data: {
+                
+                message: await list
+            },
+            expectsResponse: false
+        });
+    })
+});
+redisConnection.on('wishList-post:request:*', async (message, channel)=>{
+    
+    let id= message.data.message;
+    await userdata.addToWishList(id).then(async (list)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "wishList-from-back-user",
+            data: {
+                
+                message: await list
+            },
+            expectsResponse: false
+        });
+    })
+});
+
+redisConnection.on('wishList-delete:request:*', async (message, channel)=>{
+    
+    let info= message.data.message;
+    await userdata.removeFromWishList(info.id, info.movie).then(async (list)=>{
+        let response = await nrpSender.sendMessage({
+            
+            redis: redisConnection,
+            eventName: "wishListDelete-from-back-user",
+            data: {
+                
+                message: await list
             },
             expectsResponse: false
         });
