@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
+.comments * {
+  box-sizing: border-box;
+}
+
+.comments a, a:hover {
+  -webkit-transition: .25s color linear;
+  transition: .25s color linear;
+}
+
+.comments img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
+article time, article:hover time,
+.icon-rocknroll, .like-count {
+  -webkit-transition: .25s opacity linear;
+  transition: .25s opacity linear;
+}
+
+/*
+ |---------------------------------
+ |
+ | Project Start
+ |
+ |---------------------------------
+ */
+ .comments {
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 50px 0;
+  padding: 0 25px;
+  max-width: 450px;
+  margin: 50px auto;
+}
+
+.comments article {
+  position: relative;
+  border-bottom: solid 1px rgba(178, 179, 153, 0.125);
+  margin: 0 auto 50px auto;
+}
+.comments article:last-child {
+  border: none;
+}
+.comments article:hover time {
+  opacity: 1;
+}
+.comments article img {
+  position: absolute;
+  top: -10px;
+  left: -75px;
+  width: 50px;
+  height: 50px;
+  border-width: 0;
+  border-radius: 100%;
+}
+.comments article h4 {
+  display: inline-block;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+.comments article h4 a {
+  color: #404040;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+.comments article h4 a:hover {
+  color: #BFBFA8;
+}
+.comments article time {
+  color: #545454;
+  margin-left: 1rem;
+  text-transform: uppercase;
+}
+.comments article .icon-rocknroll {
+  color: #545454;
+  font-size: .85rem;
+}
+.comments article .icon-rocknroll:hover {
+  opacity: .5;
+}
+.comments article time,
+.comments article .like-count,
+.comments article .icon-rocknroll {
+  font-size: .75rem;
+  opacity: 0;
+}
+.comments article time, .comments article .like-count {
+  font-weight: 300;
+}
+.comments article p {
+  margin-bottom: 50px;
+}
+.comments article p .reply {
+  color: #BFBFA8;
+  cursor: pointer;
+}
+.comments article .active {
+  opacity: 1;
+}
+
+.like-data {
+  float: right;
+}
+
+.icon-rocknroll {
+  background: none;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin: 0 .125rem 0 0;
+  padding: 0;
+}
+
+.comments article:hover .icon-rocknroll,
+.comments article:hover .like-count {
+  opacity: 1;
+}
+
+@media (max-width: 650px) {
+  .comments {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .comments article {
+    width: 90%;
+  }
+  .comments article #profile-photo {
+    position: relative;
+    left: -1rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .comments article h4 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .comments article h4 time {
+    display: block;
+    margin-left: 0 !important;
+    opacity: .5 !important;
+  }
+}
+
+.giris-yap-buton {
+  color: white!important;
+}

@@ -1,0 +1,49 @@
+.product_view .modal-dialog {
+    max-width: 800px; 
+    width: 70%;
+    height: 800px;
+    margin-top: 10%;
+    opacity: 1!important;
+}
+
+.pre-cost {
+    text-decoration: line-through; 
+    color: #a5a5a5;
+}
+
+.space-ten {
+    padding: 10px 0;
+}
+
+.product_img img {
+    width: 60%;
+    margin-left: 10%;
+}
+
+.modal-title {
+    text-align: center;
+}
+
+.aveRating .material-icons {
+    font-size: 15px;
+    color: grey;
+    display: inline;
+    margin-right: -70px;
+}
+
+.starrr {
+    cursor: pointer;
+}
+
+.row .lead {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* #count-existing {
+    display: none;
+} */
+.modal-backdrop {
+    /* bug fix - no overlay */    
+    display: none;    
+}

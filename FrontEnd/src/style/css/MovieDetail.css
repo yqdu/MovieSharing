@@ -1,0 +1,343 @@
+body.MovieDetail {
+    margin: 0;
+    padding: 0;
+    background:#eee;
+    font-family: roboto;
+    display:flex; /* You delete it on your web page */
+    justify-content:center;/* and this - delete */
+    background: url('https://static.pexels.com/photos/573241/pexels-photo-573241.jpeg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #eee;
+}
+.movieDetail-card, .comment-card {
+    width: 900px;
+    height: 700px;
+    margin-top: 10%;
+    background: white;
+    opacity: 0.9;
+    background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    z-index: 2;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    /* align-items: center; */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-family: roboto!important;
+}
+
+.movieDetail-card:after,
+.comment-card::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    opacity: 0.8;
+    z-index: 3;
+}
+.movieDetail-card > div,
+.comment-card > div{
+    z-index: 4;
+    position: relative;
+    padding: 60px 25px;
+    width: 100%;
+    margin-left: 150px;
+}
+.movieDetailCard .poster-kapsul {
+    text-align: center;
+    position: absolute;
+    margin-left: -280px;
+    opacity: 1;
+}
+.comments .poster-kapsul {
+    text-align: center;
+    position: absolute;
+    margin-left: 620px;
+    opacity: 1;
+}
+
+.behavIcons {
+    text-align: center;
+    position: absolute;
+    margin-left: 620px;
+    opacity: 1;
+}
+.behavIcons button {
+    margin-top: 10px;
+}
+.poster {
+    /* height: auto; */
+    width: 200px;
+    padding: 50px 0px;
+}
+
+.movieDetail-group {
+    position: relative;
+    margin-bottom: 45px;
+    display: inline-block;
+}
+
+.movieDetail-group div{
+    padding: 10px;
+}
+
+.movieDetail-group textarea {
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: none;
+    background: none;
+    color: black;
+}
+/* LABEL ======================================= */
+
+.movieDetail-group label {
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* BOTTOM BARS ================================= */
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%;
+}
+/* active durum bar */
+
+.movieDetail-group input:focus ~ .bar:before,
+.movieDetail-group input:focus ~ .bar:after {
+    width: 50%;
+}
+/* HIGHLIGHTER ================================== */
+
+.highlight {
+    position: absolute;
+    height: 0%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* active durum */
+
+.movieDetail-group input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+/* form animasyon ================ */
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: rgba(255, 255, 255, 0.7);
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@-moz-keyframes inputHighlighter {
+    from {
+        background: rgba(255, 255, 255, 0.7);
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: rgba(255, 255, 255, 0.7);
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+.input-ikon {
+    font-size: 25px!important;
+    position: relative;
+}
+.input-sifre-ikon {
+    font-size: 22px!important;
+    position: relative;
+}
+.span-input {
+    margin-left: 10px;
+    position: relative;
+    top: -5px;
+    text-transform: uppercase;
+}
+.giris-yap-buton,
+.kayit-ol-buton,
+.sifre-hatirlat-buton,
+.behavIcons button{
+    background: linear-gradient(-135deg, rgb(63, 81, 181), rgb(233, 30, 99));
+    background: -webkit-linear-gradient(-135deg, rgb(63, 81, 181), rgb(233, 30, 99));
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #eee;
+    font-family: roboto;
+    font-weight: 100;
+    padding: 10px;
+    border-radius: 3px;
+    outline: none;
+    opacity: 1;
+    width: 200px;
+    border-style: none;
+}
+
+  #showForm {
+    display: block;
+  }
+
+  #hideForm {
+    display: none;
+  }
+
+.movieName {
+    /* text-align: center; */
+    font-size: 30px;
+    /* margin-left: 10px; */
+    /* position: absolute; */
+    /* top: -5px; */
+    text-transform: uppercase;
+}
+
+.releaseYear {
+    font-style: oblique;
+    color: darkgray;
+}
+
+.description {
+    font-style: oblique;
+    color: black;
+    font-size: 18px;
+}
+
+/* tree */
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.tree ul {
+    margin-left:1em;
+    position:relative
+}
+.tree ul ul {
+    margin-left:.5em
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:2em;
+    color:#369;
+    font-weight:700;
+    position:relative
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom:0
+}
+.indicator {
+    margin-right:5px;
+}
+.tree li a {
+    text-decoration: none;
+    color:#369;
+}
+.tree li button, .tree li button:active, .tree li button:focus {
+    text-decoration: none;
+    color:#369;
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline: 0;
+}
+
+#show {
+    display: block;
+}
+
+#hide {
+    display: none;
+}

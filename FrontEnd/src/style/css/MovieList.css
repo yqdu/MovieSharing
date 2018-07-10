@@ -1,0 +1,69 @@
+body.MovieByKey,
+body.MovieByCategory {
+    margin: 0;
+    padding: 0;
+    background:#eee;
+    font-family: roboto;
+    display:flex; /* You delete it on your web page */
+    justify-content:center;/* and this - delete */
+    background: url('https://static.pexels.com/photos/573241/pexels-photo-573241.jpeg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.header {
+    width: 70vw;
+    height: 250px;
+    margin-top: 90px;
+    background: white;
+}
+
+.content {
+    width: 70vw;
+    margin-top: 40px;
+    height: 100vh;
+    /* background: white; */
+}
+
+.header {
+    background: url(https://images.pexels.com/photos/571169/pexels-photo-571169.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.header-title {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    top: 30%;
+    color: white
+}
+
+.gal {
+	
+	
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+	  
+	
+	}	
+	.gal img{ width: 100%; padding: 7px 0;}
+@media (max-width: 500px) {
+		
+		.gal {
+	
+	
+	-webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+	  
+	
+	}
+		
+	}

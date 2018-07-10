@@ -1,0 +1,6 @@
+.portrait {
+    max-height: 250px;
+    -webkit-clip-path: ellipse(35% 36% at 50% 45%);
+    clip-path: ellipse(35% 36% at 50% 45%);
+    opacity: 1!important;
+}

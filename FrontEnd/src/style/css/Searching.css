@@ -1,0 +1,46 @@
+.form-group {
+    margin:0;
+    padding:20px ;
+
+    /* &:first-child { border-color: transparent; } */
+}
+.form-group:first-child {
+    border-color:transparent;
+}
+.form-control {
+  padding: 0px 10px 0 20px;
+  margin-top: 10px;
+  color: #333;
+  font-size: 19px;
+  font-weight: 500;
+    border: 3px solid #555;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-height:10px;
+    height: auto;
+    border-radius: 50px 0  0 50px !important;
+}
+
+.form-control :focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-color: transparent;
+
+    }
+
+#searchbtn { 
+    border:0;
+    padding: 0px 10px;
+    margin-top: 10px;
+    color: #fff;
+    background:#888;
+    font-size: 19px;
+    font-weight: 500;
+    border: 3px solid #555;
+    border-left: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-height:10px;
+    height: auto;
+    border-radius: 0 50px 50px 0 !important;
+}
