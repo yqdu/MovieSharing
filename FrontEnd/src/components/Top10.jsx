@@ -6,7 +6,7 @@ class Top10 extends React.Component {
         super(props);
         this.state = {
             Top10: [],
-            order: 2
+            order: 1
         }
     }
     async componentDidMount() {
@@ -30,14 +30,14 @@ class Top10 extends React.Component {
             <section className="p-0" id="Top10">
                 <div className="container-fluid p-0">
                     <div className="row no-gutters popup-gallery">
-                    {this.state.Top10.slice(1).map((x) => 
+                    {this.state.Top10.slice().map((x) => 
                         <div className="col-lg-3 col-sm-4" key={x.name}>
                             <a className="portfolio-box" href={`../processedposters/`+x.poster}>
                                 <img className="img-fluid" src={`../processedposters/`+x.poster} alt={x.name} />
                                 <div className="portfolio-box-caption">
                                     <div className="portfolio-box-caption-content">
                                     <div className="project-category text-faded">
-                                        Top {this.state.order++}
+                                        # {this.state.order++}
                                     </div>
                                     <div className="project-name">
                                         {x.name}

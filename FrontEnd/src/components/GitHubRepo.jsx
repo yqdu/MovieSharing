@@ -6,7 +6,7 @@ class GitHubRepo extends React.Component {
             <section className="bg-dark text-white">
                 <div className="container text-center">
                     <h2 className="mb-4">Codes are available via GitHub!</h2>
-                    <a className="btn btn-light btn-xl sr-button" href="https://github.com/Pjw0618/MovieSharing" target="_blank">Visit Now!</a>
+                    <a className="btn btn-light btn-xl sr-button" href="https://github.com/yqdu/MovieSharing" target="_blank">Visit Now!</a>
                 </div>
             </section>
         )

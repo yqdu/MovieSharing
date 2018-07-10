@@ -25,7 +25,8 @@ class Searching extends React.Component {
             window.location.pathname = "/MovieByKey/" + this.state.searchKey;
         }
         else {
-            window.location.pathname += "/" + this.state.searchKey;            
+            // window.location.pathname += "/" + this.state.searchKey;
+            window.location.pathname = "/MovieByKey/" + this.state.searchKey;            
         }
     }
 

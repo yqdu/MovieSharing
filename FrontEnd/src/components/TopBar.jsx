@@ -57,7 +57,7 @@ class TopBar extends React.Component {
                         <ul className="navbar-nav ml-auto">
                             <Searching />
                             <li className="nav-item">
-                                <Link className="nav-link js-scroll-trigger" to="#Top10" onClick={window.location.reload}>Top Ten</Link>
+                                <Link className="nav-link js-scroll-trigger" to="/#Top10" onClick={window.location.reload}>Top Ten Rated Movies</Link>
                             </li>         
                             {this.state.userAccount}
                         </ul>

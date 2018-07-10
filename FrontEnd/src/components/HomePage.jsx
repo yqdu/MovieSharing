@@ -24,7 +24,7 @@ class HomePage extends React.Component {
                 <Top10 />
                 <About />
                 <GitHubRepo />
-                <Contact />
+                {/* <Contact /> */}
     	    </div>
         )
     }
